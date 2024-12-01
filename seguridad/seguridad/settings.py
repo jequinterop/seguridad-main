@@ -90,16 +90,15 @@ WSGI_APPLICATION = 'seguridad.wsgi.application'
 #}
 # Database documentation https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
-        'NAME': 'seguridad',                       # Nombre de tu base de datos
-        'USER': 'josequintero',                    # Tu usuario de PostgreSQL
-        'PASSWORD': '',                            # La contraseña de tu usuario PostgreSQL (dejar vacía si no hay)
-        'HOST': 'localhost',                       # Host, generalmente localhost
-        'PORT': '5432',                            # Puerto predeterminado de PostgreSQL
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
+
 
 
 # Password validation
