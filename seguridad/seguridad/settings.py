@@ -156,44 +156,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
 
-# Configuración básica de CSP
-CSP_DEFAULT_SRC = ("'self'",)  # Solo permite cargar recursos del mismo dominio
 
-# Scripts permitidos (incluye Bootstrap y otros scripts necesarios)
-CSP_SCRIPT_SRC = (
-    "'self'", 
-    'https://seguridad-main-2.onrender.com',
-    'https://cdnjs.cloudflare.com', 
-    'https://cdn.jsdelivr.net'
-)
-
-# Estilos permitidos (incluye Bootstrap CSS)
-CSP_STYLE_SRC = (
-    "'self'", 
-    'https://seguridad-main-2.onrender.com',
-    'https://cdn.jsdelivr.net',
-    'https://stackpath.bootstrapcdn.com',
-    'https://maxcdn.bootstrapcdn.com'
-)
-
-# Fuentes permitidas
-CSP_FONT_SRC = (
-    "'self'", 
-    'https://seguridad-main-2.onrender.com', 
-    'https://fonts.gstatic.com'
-)
-
-# Imágenes permitidas
-CSP_IMG_SRC = ("'self'", 'data:')  # Imágenes desde el mismo dominio y datos en línea (como base64)
-
-# No permite iframes externos
-CSP_FRAME_SRC = ("'none'",)
-
-# Conexiones permitidas (si usas recursos dinámicos como APIs o websockets)
-CSP_CONNECT_SRC = (
-    "'self'", 
-    'https://seguridad-main-2.onrender.com'
-)
 
 
 
