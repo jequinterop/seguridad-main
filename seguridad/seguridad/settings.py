@@ -125,3 +125,19 @@ CSP_STYLE_SRC = (
 )
 CSP_IMG_SRC = ("'self'", 'data:')
 CSP_FONT_SRC = ("'self'", 'https://fonts.gstatic.com')
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Asegúrate de que existe la carpeta 'templates' en tu proyecto
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',  # Necesario para el administrador de Django
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
