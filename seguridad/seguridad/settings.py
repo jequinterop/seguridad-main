@@ -165,21 +165,7 @@ CSP_FONT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Fuentes pe
 CSP_FRAME_SRC = ("'none'",)  # No permite iframes externos
 CSP_SCRIPT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://cdnjs.cloudflare.com')
 CSP_STYLE_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://maxcdn.bootstrapcdn.com')
-CSP_DEFAULT_SRC = ("'self'",)  # Recursos permitidos desde el propio dominio
-CSP_SCRIPT_SRC = (
-    "'self'",
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js',
-)
-CSP_STYLE_SRC = (
-    "'self'",
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css',
-)
-CSP_FONT_SRC = (
-    "'self'",
-    'https://fonts.googleapis.com',
-    'https://fonts.gstatic.com',
-)
-CSP_IMG_SRC = ("'self'", 'data:')  # Permitir imágenes en línea (data URIs)
+
 
 
 CORS_ALLOWED_ORIGINS = [
