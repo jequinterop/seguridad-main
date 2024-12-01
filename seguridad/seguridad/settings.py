@@ -91,12 +91,16 @@ WSGI_APPLICATION = 'seguridad.wsgi.application'
 # Database documentation https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # Motor de base de datos
+        'NAME': 'seguridad',                       # Nombre de tu base de datos
+        'USER': 'josequintero',                    # Tu usuario de PostgreSQL
+        'PASSWORD': '',                            # La contraseña de tu usuario PostgreSQL (dejar vacía si no hay)
+        'HOST': 'localhost',                       # Host, generalmente localhost
+        'PORT': '5432',                            # Puerto predeterminado de PostgreSQL
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
