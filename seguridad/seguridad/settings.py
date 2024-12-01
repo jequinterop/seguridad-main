@@ -158,13 +158,43 @@ LOGIN_URL = '/login/'
 
 # Configuración básica de CSP
 CSP_DEFAULT_SRC = ("'self'",)  # Solo permite cargar recursos del mismo dominio
-CSP_SCRIPT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Scripts permitidos
-CSP_STYLE_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Estilos permitidos
+
+# Scripts permitidos (incluye Bootstrap y otros scripts necesarios)
+CSP_SCRIPT_SRC = (
+    "'self'", 
+    'https://seguridad-main-2.onrender.com',
+    'https://cdnjs.cloudflare.com', 
+    'https://cdn.jsdelivr.net'
+)
+
+# Estilos permitidos (incluye Bootstrap CSS)
+CSP_STYLE_SRC = (
+    "'self'", 
+    'https://seguridad-main-2.onrender.com',
+    'https://cdn.jsdelivr.net',
+    'https://stackpath.bootstrapcdn.com',
+    'https://maxcdn.bootstrapcdn.com'
+)
+
+# Fuentes permitidas
+CSP_FONT_SRC = (
+    "'self'", 
+    'https://seguridad-main-2.onrender.com', 
+    'https://fonts.gstatic.com'
+)
+
+# Imágenes permitidas
 CSP_IMG_SRC = ("'self'", 'data:')  # Imágenes desde el mismo dominio y datos en línea (como base64)
-CSP_FONT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Fuentes permitidas
-CSP_FRAME_SRC = ("'none'",)  # No permite iframes externos
-CSP_SCRIPT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://cdnjs.cloudflare.com')
-CSP_STYLE_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://maxcdn.bootstrapcdn.com')
+
+# No permite iframes externos
+CSP_FRAME_SRC = ("'none'",)
+
+# Conexiones permitidas (si usas recursos dinámicos como APIs o websockets)
+CSP_CONNECT_SRC = (
+    "'self'", 
+    'https://seguridad-main-2.onrender.com'
+)
+
 
 
 
@@ -181,4 +211,29 @@ CORS_ALLOW_HEADERS = [
     "accept",
     "origin",
     "user-agent",
+]
+
+
+# Configuración de cookies
+SESSION_COOKIE_SECURE = True  # Enviar cookies de sesión solo a través de HTTPS
+CSRF_COOKIE_SECURE = True  # Enviar cookies CSRF solo a través de HTTPS
+SESSION_COOKIE_SAMESITE = 'Lax'  # Evita que las cookies se envíen en solicitudes de terceros (ajústalo según tus necesidades)
+CSRF_COOKIE_SAMESITE = 'Lax'  # Aplica SameSite también para cookies CSRF
+
+# Habilitar protección contra ataques XSS
+SECURE_BROWSER_XSS_FILTER = True  # Instruye al navegador a bloquear páginas si detecta scripts maliciosos.
+
+# Evitar que los navegadores interpreten archivos como otro tipo de contenido
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Protege contra ataques de tipo MIME-sniffing.
+
+# Configuración de HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # Habilita HSTS y especifica el tiempo (en segundos) para que los navegadores recuerden usar solo HTTPS.
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Aplica HSTS también a todos los subdominios de tu sitio.
+SECURE_HSTS_PRELOAD = True  # Permite que tu sitio sea incluido en la lista de precarga de HSTS (opcional, pero recomendado).
+
+# Asegúrate de que estas configuraciones se usen en producción y con HTTPS
+SECURE_SSL_REDIRECT = True  # Redirige automáticamente todas las solicitudes HTTP a HTTPS.
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://seguridad-main-2.onrender.com',
 ]
