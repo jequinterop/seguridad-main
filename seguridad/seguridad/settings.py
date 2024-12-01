@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'crispy_forms',
+    'csp',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,30 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
+
+
+# Configuración básica de CSP
+CSP_DEFAULT_SRC = ("'self'",)  # Solo permite cargar recursos del mismo dominio
+CSP_SCRIPT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Scripts permitidos
+CSP_STYLE_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Estilos permitidos
+CSP_IMG_SRC = ("'self'", 'data:')  # Imágenes desde el mismo dominio y datos en línea (como base64)
+CSP_FONT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com')  # Fuentes permitidas
+CSP_FRAME_SRC = ("'none'",)  # No permite iframes externos
+CSP_SCRIPT_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://cdnjs.cloudflare.com')
+CSP_STYLE_SRC = ("'self'", 'https://seguridad-main-2.onrender.com', 'https://maxcdn.bootstrapcdn.com')
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://seguridad-main-2.onrender.com",  # Tu dominio en producción
+    "http://127.0.0.1:8000",  # Solo si pruebas localmente
+]
+
+
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+    "accept",
+    "origin",
+    "user-agent",
+]
