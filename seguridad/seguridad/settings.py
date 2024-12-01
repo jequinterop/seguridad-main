@@ -200,3 +200,11 @@ SECURE_SSL_REDIRECT = True  # Redirige automáticamente todas las solicitudes HT
 CSRF_TRUSTED_ORIGINS = [
     'https://seguridad-main-2.onrender.com',
 ]
+
+# Forzar HTTPS en producción
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000  # 1 año recomendado
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
